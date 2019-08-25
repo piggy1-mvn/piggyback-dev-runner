@@ -1,0 +1,43 @@
+version: '2'
+
+services:
+    location:
+        container_name: location
+        image: piggy1/location
+        ports:
+         - "8080:8080"
+    offers:
+        container_name: offers
+        image: piggy1/offers
+        ports:
+         - "8081:8081"
+    events:
+        container_name: events
+        image: piggy1/events
+        ports:
+         - "8082:8082"
+    user:
+        container_name: user
+        image: piggy1/user
+        ports:
+         - "8083:8083"
+    invoice:
+        container_name: invoice
+        image: piggy1/invoice
+        ports:
+         - "8084:8084"
+    partner:
+        container_name: partner
+        image: piggy1/partner
+        ports:
+         - "8085:8085"
+    notification:
+        container_name: notification
+        image: piggy1/notification
+        ports:
+         - "8086:8086"
+    portal:
+        container_name: portal
+        image: piggy1/portal
+        ports:
+         - "3000:3000"
