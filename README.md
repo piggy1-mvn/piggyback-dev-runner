@@ -7,7 +7,7 @@ This repository helps with setting up Piggyback Incentives for a developer on th
 1. Docker Desktop https://www.docker.com/products/docker-desktop
 2. IntelliJ/Eclipse IDE - for Java Microservices
 3. Visual Studio Code - for React.JS Partner Web Interface
-4. Android Studio - for the mobile app.
+4. Android Studio (and mobile SDKs) - for the mobile app.
 5. Git
 
 ## Steps
