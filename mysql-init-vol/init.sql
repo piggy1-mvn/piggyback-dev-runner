@@ -1,0 +1,3 @@
+ALTER USER root IDENTIFIED WITH mysql_native_password BY 'password';
+CREATE DATABASE IF NOT EXISTS userdb;
+CREATE DATABASE IF NOT EXISTS locationdb;
