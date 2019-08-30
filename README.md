@@ -67,6 +67,7 @@ This repository helps with setting up Piggyback Incentives for a developer on th
 1. **piggyback-common**
 	
 	This is a maven project and deploys the package to packagecloud.io through TravisCI build. For building this project locally, please un-comment the maven-deploy-plugin in the pom.xml
+	
 	**NOTE** Do not push your changes with this plugin un-commented.
 ~~~
 <plugins>
