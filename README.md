@@ -51,7 +51,8 @@ This repository helps with setting up Piggyback Incentives for a developer on th
 
 ## Steps
 
-1. Clone git repositories.
+1. Clone this git repository to your local machine.
+2. Run the command in piggyback-dev-runner/scripts/git_pull.txt
 2. Under piggyback-dev-runner folder, on a command line -
 
 	**docker-compose up -d**
