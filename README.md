@@ -36,7 +36,7 @@ This repository helps with setting up Piggyback Incentives for a developer on th
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=piggy1-mvn_piggyback-portal&metric=alert_status)](https://sonarcloud.io/dashboard?id=piggy1-mvn_piggyback-portal)
 [![codecov](https://codecov.io/gh/piggy1-mvn/piggyback-portal/branch/master/graph/badge.svg)](https://codecov.io/gh/piggy1-mvn/piggyback-portal)
 
-9. Mobile App: [![Build Status](https://app.bitrise.io/app/ad1928a7215581b2/status.svg?token=8WT5SCocaqBd0s6c_pzg4g&branch=master)](https://app.bitrise.io/app/ad1928a7215581b2)
+9. Mobile App: [![Build Status](https://app.bitrise.io/app/5ffc8237993c6c8a/status.svg?token=fbt5d_Jy0ILe-EfivQF0kA)](https://app.bitrise.io/app/5ffc8237993c6c8a)
 [![codecov](https://codecov.io/gh/piggy1-mvn/piggyback-mobile/branch/master/graph/badge.svg)](https://codecov.io/gh/piggy1-mvn/piggyback-mobile)
 
 ## Prerequisite Installations
