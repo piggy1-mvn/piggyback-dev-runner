@@ -6,6 +6,8 @@ services:
         restart: always
         ports:
          - "8080:8080"
+        links:
+        - mongo
     offers:
         image: piggy1/offers:latest
         restart: always
@@ -16,21 +18,29 @@ services:
         restart: always
         ports:
          - "8082:8082"
+        links:
+        - mongo
     user:
         image: piggy1/user:latest
         restart: always
         ports:
          - "8083:8083"
+        links:
+        - mysql
     invoice:
         image: piggy1/invoice:latest
         restart: always
         ports:
          - "8084:8084"
+        links:
+        - mysql
     partner:
         image: piggy1/partner:latest
         restart: always
         ports:
          - "8085:8085"
+        links:
+        - mysql
     notification:
         image: piggy1/notification:latest
         restart: always
