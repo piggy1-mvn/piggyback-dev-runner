@@ -36,8 +36,7 @@ This repository helps with setting up Piggyback Incentives for a developer on th
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=piggy1-mvn_piggyback-portal&metric=alert_status)](https://sonarcloud.io/dashboard?id=piggy1-mvn_piggyback-portal)
 [![codecov](https://codecov.io/gh/piggy1-mvn/piggyback-portal/branch/master/graph/badge.svg)](https://codecov.io/gh/piggy1-mvn/piggyback-portal)
 
-9. Mobile App: [![TravisCI](https://travis-ci.org/piggy1-mvn/piggyback-mobile.svg?branch=master)](https://travis-ci.org/piggy1-mvn/piggyback-mobile.svg?branch=master)
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=piggy1-mvn_piggyback-mobile&metric=alert_status)](https://sonarcloud.io/dashboard?id=piggy1-mvn_piggyback-mobile)
+9. Mobile App: [![Build Status](https://app.bitrise.io/app/5ffc8237993c6c8a/status.svg?token=fbt5d_Jy0ILe-EfivQF0kA)](https://app.bitrise.io/app/5ffc8237993c6c8a)
 [![codecov](https://codecov.io/gh/piggy1-mvn/piggyback-mobile/branch/master/graph/badge.svg)](https://codecov.io/gh/piggy1-mvn/piggyback-mobile)
 
 ## Prerequisite Installations
@@ -62,22 +61,3 @@ This repository helps with setting up Piggyback Incentives for a developer on th
 	**docker-compose down**
 	
 	This will stop and remove all containers started in the previous step.
-	
-## Building Locally
-
-1. **piggyback-common**
-	
-	This is a maven project and deploys the package to packagecloud.io through TravisCI build. For building this project locally, please un-comment the maven-deploy-plugin in the pom.xml
-	
-	**NOTE** Do not push your changes with this plugin un-commented.
-~~~
-<plugins>
-        <plugin>
-            <artifactId>maven-deploy-plugin</artifactId>
-            <version>2.8.1</version>
-            <configuration>
-                <altDeploymentRepository>internal.repo::default::file://${project.build.directory}/repo</altDeploymentRepository>
-            </configuration>
-        </plugin>
-</plugins>
-~~~
