@@ -50,7 +50,7 @@ services:
         image: piggy1/portal:latest
         restart: always
         ports:
-         - "3000:3000"
+         - "5000:5000"
     mongo:
         image: mongo:latest
         restart: always
@@ -76,8 +76,6 @@ services:
         - ./mysql-init-vol:/docker-entrypoint-initdb.d
         environment:
           MYSQL_ROOT_PASSWORD: 'password'
-          MYSQL_USER: 'test'
-          MYSQL_PASS: 'pass'
     phpmyadmin:
         image: phpmyadmin/phpmyadmin
         environment:
