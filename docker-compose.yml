@@ -4,6 +4,8 @@ services:
     location:
         image: piggy1/location:latest
         restart: always
+        volumes:
+        - ./gcp-secret-vol:/app/config
         ports:
          - "8080:8080"
         links:
@@ -11,11 +13,15 @@ services:
     offers:
         image: piggy1/offers:latest
         restart: always
+        volumes:
+        - ./gcp-secret-vol:/app/config
         ports:
          - "8081:8081"
     events:
         image: piggy1/events:latest
         restart: always
+        volumes:
+        - ./gcp-secret-vol:/app/config
         ports:
          - "8082:8082"
         links:
@@ -23,6 +29,8 @@ services:
     user:
         image: piggy1/user:latest
         restart: always
+        volumes:
+        - ./gcp-secret-vol:/app/config
         ports:
          - "8083:8083"
         links:
@@ -37,6 +45,8 @@ services:
     partner:
         image: piggy1/partner:latest
         restart: always
+        volumes:
+        - ./gcp-secret-vol:/app/config
         ports:
          - "8085:8085"
         links:
@@ -44,6 +54,8 @@ services:
     notification:
         image: piggy1/notification:latest
         restart: always
+        volumes:
+        - ./gcp-secret-vol:/app/config
         ports:
          - "8086:8086"
     portal:
@@ -88,3 +100,4 @@ volumes:
     mysql-init-vol:
     mongo-data-vol:
     mongo-init-vol:
+    gcp-secret-vol:
