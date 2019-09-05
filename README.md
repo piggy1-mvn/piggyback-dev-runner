@@ -62,3 +62,19 @@ This repository helps with setting up Piggyback Incentives for a developer on th
 	**docker-compose down**
 	
 	This will stop and remove all containers started in the previous step.
+	
+## GCP Pub/Sub Dev Setup
+
+Some of the microservices use GCP Pub/Sub to publish and subscribe for messages. In order to connect to GCP successfully, following settings should be made manually.
+
+1. Under piggyback-dev-runner, create a folder **gcp-secret-vol** (may already be created if docker-compose command is run) and drop secret.json file (shared seperately). This will allow microservices to connect to GCP when running inside a docker container.
+2. For Windows machines - 
+	
+	a. Add a system environment variable: **GOOGLE_APPLICATION_CREDENTIALS**, and point it to the full path of the secret.json file (shared seperately).
+	
+	b. Comment the following lines from the application.properties to avoid overriding system environment variable -
+	
+~~~
+spring.cloud.gcp.project-id=some-project-id
+spring.cloud.gcp.credentials.location=file:/app/config/secret.json
+~~~
