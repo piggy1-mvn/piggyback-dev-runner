@@ -36,7 +36,11 @@ This repository helps with setting up Piggyback Incentives for a developer on th
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=piggy1-mvn_piggyback-portal&metric=alert_status)](https://sonarcloud.io/dashboard?id=piggy1-mvn_piggyback-portal)
 [![codecov](https://codecov.io/gh/piggy1-mvn/piggyback-portal/branch/master/graph/badge.svg)](https://codecov.io/gh/piggy1-mvn/piggyback-portal)
 
-9. Mobile App: [![Build Status](https://app.bitrise.io/app/5ffc8237993c6c8a/status.svg?token=fbt5d_Jy0ILe-EfivQF0kA)](https://app.bitrise.io/app/5ffc8237993c6c8a)
+9. Notification Service: [![TravisCI](https://travis-ci.org/piggy1-mvn/piggyback-notification.svg?branch=master)](https://travis-ci.org/piggy1-mvn/piggyback-notification.svg?branch=master)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=piggy1-mvn_piggyback-notification&metric=alert_status)](https://sonarcloud.io/dashboard?id=piggy1-mvn_piggyback-notification)
+[![codecov](https://codecov.io/gh/piggy1-mvn/piggyback-notification/branch/master/graph/badge.svg)](https://codecov.io/gh/piggy1-mvn/piggyback-notification)
+
+10. Mobile App: [![Build Status](https://app.bitrise.io/app/5ffc8237993c6c8a/status.svg?token=fbt5d_Jy0ILe-EfivQF0kA)](https://app.bitrise.io/app/5ffc8237993c6c8a)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=piggy1-mvn_piggyback-mobile&metric=alert_status)](https://sonarcloud.io/dashboard?id=piggy1-mvn_piggyback-mobile)
 [![codecov](https://codecov.io/gh/piggy1-mvn/piggyback-mobile/branch/master/graph/badge.svg)](https://codecov.io/gh/piggy1-mvn/piggyback-mobile)
 
