@@ -10,7 +10,7 @@ services:
         ports:
          - "8080:8080"
         links:
-        - mongo
+        - piggyback-dev-runner_mongo_1
     offers:
         image: piggy1/offers:latest
         container_name: piggyback-dev-runner_offers_1
@@ -28,7 +28,7 @@ services:
         ports:
          - "8082:8082"
         links:
-        - mongo
+        - piggyback-dev-runner_mongo_1
     user:
         image: piggy1/user:latest
         container_name: piggyback-dev-runner_user_1
@@ -38,7 +38,7 @@ services:
         ports:
          - "8083:8083"
         links:
-        - mysql
+        - piggyback-dev-runner_mysql_1
     invoice:
         image: piggy1/invoice:latest
         container_name: piggyback-dev-runner_invoice_1
@@ -46,7 +46,7 @@ services:
         ports:
          - "8084:8084"
         links:
-        - mysql
+        - piggyback-dev-runner_mysql_1
     partner:
         image: piggy1/partner:latest
         container_name: piggyback-dev-runner_partner_1
@@ -56,7 +56,7 @@ services:
         ports:
          - "8085:8085"
         links:
-        - mysql
+        - piggyback-dev-runner_mongo_1
     notification:
         image: piggy1/notification:latest
         container_name: piggyback-dev-runner_notification_1
