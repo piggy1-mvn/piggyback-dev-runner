@@ -9,7 +9,7 @@ services:
         - ./gcp-secret-vol:/app/config
         ports:
          - "8080:8080"
-        links:
+        external_links:
         - piggyback-dev-runner_mongo_1
     offers:
         image: piggy1/offers:latest
@@ -27,7 +27,7 @@ services:
         - ./gcp-secret-vol:/app/config
         ports:
          - "8082:8082"
-        links:
+        external_links:
         - piggyback-dev-runner_mongo_1
     user:
         image: piggy1/user:latest
@@ -37,7 +37,7 @@ services:
         - ./gcp-secret-vol:/app/config
         ports:
          - "8083:8083"
-        links:
+        external_links:
         - piggyback-dev-runner_mysql_1
     invoice:
         image: piggy1/invoice:latest
@@ -45,7 +45,7 @@ services:
         restart: always
         ports:
          - "8084:8084"
-        links:
+        external_links:
         - piggyback-dev-runner_mysql_1
     partner:
         image: piggy1/partner:latest
@@ -55,7 +55,7 @@ services:
         - ./gcp-secret-vol:/app/config
         ports:
          - "8085:8085"
-        links:
+        external_links:
         - piggyback-dev-runner_mongo_1
     notification:
         image: piggy1/notification:latest
