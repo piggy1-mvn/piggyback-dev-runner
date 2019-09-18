@@ -3,63 +3,65 @@ version: '3.1'
 services:
     location:
         image: piggy1/location:latest
-        container_name: piggyback-dev-runner_location_1
+        container_name: piggyback-dev-runner-location-1
         restart: always
         volumes:
         - ./gcp-secret-vol:/app/config
         ports:
          - "8080:8080"
         external_links:
-        - piggyback-dev-runner_mongo_1
+        - piggyback-dev-runner-mongo-1
     offers:
         image: piggy1/offers:latest
-        container_name: piggyback-dev-runner_offers_1
+        container_name: piggyback-dev-runner-offers-1
         restart: always
         volumes:
         - ./gcp-secret-vol:/app/config
         ports:
          - "8081:8081"
+        external_links:
+        - piggyback-dev-runner-mongo-1
     events:
         image: piggy1/events:latest
-        container_name: piggyback-dev-runner_events_1
+        container_name: piggyback-dev-runner-events-1
         restart: always
         volumes:
         - ./gcp-secret-vol:/app/config
         ports:
          - "8082:8082"
         external_links:
-        - piggyback-dev-runner_mongo_1
+        - piggyback-dev-runner-mongo-1
     user:
         image: piggy1/user:latest
-        container_name: piggyback-dev-runner_user_1
+        container_name: piggyback-dev-runner-user-1
         restart: always
         volumes:
         - ./gcp-secret-vol:/app/config
         ports:
          - "8083:8083"
         external_links:
-        - piggyback-dev-runner_mysql_1
+        - piggyback-dev-runner-mysql-1
     invoice:
         image: piggy1/invoice:latest
-        container_name: piggyback-dev-runner_invoice_1
+        container_name: piggyback-dev-runner-invoice-1
         restart: always
         ports:
          - "8084:8084"
         external_links:
-        - piggyback-dev-runner_mysql_1
+        - piggyback-dev-runner_mysql-1
     partner:
         image: piggy1/partner:latest
-        container_name: piggyback-dev-runner_partner_1
+        container_name: piggyback-dev-runner_partner-1
         restart: always
         volumes:
         - ./gcp-secret-vol:/app/config
         ports:
          - "8085:8085"
         external_links:
-        - piggyback-dev-runner_mongo_1
+        - piggyback-dev-runner-mongo-1
     notification:
         image: piggy1/notification:latest
-        container_name: piggyback-dev-runner_notification_1
+        container_name: piggyback-dev-runner_notification-1
         restart: always
         volumes:
         - ./gcp-secret-vol:/app/config
@@ -67,13 +69,13 @@ services:
          - "8086:8086"
     portal:
         image: piggy1/portal:latest
-        container_name: piggyback-dev-runner_portal_1
+        container_name: piggyback-dev-runner-portal-1
         restart: always
         ports:
          - "5000:5000"
     mongo:
         image: mongo:latest
-        container_name: piggyback-dev-runner_mongo_1
+        container_name: piggyback-dev-runner-mongo-1
         restart: always
         volumes: 
         - mongo-data-vol:/data/db
@@ -83,7 +85,7 @@ services:
           MONGO_INITDB_ROOT_PASSWORD: example
     mongo-express:
         image: mongo-express:latest
-        container_name: piggyback-dev-runner_mongo-express_1
+        container_name: piggyback-dev-runner-mongo-express-1
         restart: always
         ports:
         - "8001:8081"
@@ -92,7 +94,7 @@ services:
           ME_CONFIG_MONGODB_ADMINPASSWORD: example
     mysql:
         image: mysql:latest
-        container_name: piggyback-dev-runner_mysql_1
+        container_name: piggyback-dev-runner_mysql-1
         restart: always
         volumes: 
         - ./mysql-data-vol:/var/lib/mysql
@@ -101,7 +103,7 @@ services:
           MYSQL_ROOT_PASSWORD: 'password'
     phpmyadmin:
         image: phpmyadmin/phpmyadmin
-        container_name: piggyback-dev-runner_phpmyadmin_1
+        container_name: piggyback-dev-runner-phpmyadmin-1
         environment:
         - PMA_ARBITRARY=1
         restart: always
