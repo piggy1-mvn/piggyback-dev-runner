@@ -48,10 +48,10 @@ services:
         ports:
          - "8084:8084"
         external_links:
-        - piggyback-dev-runner_mysql-1
+        - piggyback-dev-runner-mysql-1
     partner:
         image: piggy1/partner:latest
-        container_name: piggyback-dev-runner_partner-1
+        container_name: piggyback-dev-runner-partner-1
         restart: always
         volumes:
         - ./gcp-secret-vol:/app/config
@@ -61,7 +61,7 @@ services:
         - piggyback-dev-runner-mongo-1
     notification:
         image: piggy1/notification:latest
-        container_name: piggyback-dev-runner_notification-1
+        container_name: piggyback-dev-runner-notification-1
         restart: always
         volumes:
         - ./gcp-secret-vol:/app/config
@@ -94,7 +94,7 @@ services:
           ME_CONFIG_MONGODB_ADMINPASSWORD: example
     mysql:
         image: mysql:latest
-        container_name: piggyback-dev-runner_mysql-1
+        container_name: piggyback-dev-runner-mysql-1
         restart: always
         volumes: 
         - ./mysql-data-vol:/var/lib/mysql
