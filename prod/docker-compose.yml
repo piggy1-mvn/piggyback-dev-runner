@@ -12,37 +12,37 @@ services:
         container_name: piggyback-dev-runner-offers
         restart: always
         ports:
-         - "8080:8080"
+         - "8080:8081"
     events:
         image: piggy1/events:latest
         container_name: piggyback-dev-runner-events
         restart: always
         ports:
-         - "8080:8080"
+         - "8080:8082"
     user:
         image: piggy1/user:latest
         container_name: piggyback-dev-runner-user
         restart: always
         ports:
-         - "8080:8080"
+         - "8080:8083"
     invoice:
         image: piggy1/invoice:latest
         container_name: piggyback-dev-runner-invoice
         restart: always
         ports:
-         - "8080:8080"
+         - "8080:8084"
     partner:
         image: piggy1/partner:latest
         container_name: piggyback-dev-runner-partner
         restart: always
         ports:
-         - "8080:8080"
+         - "8080:8085"
     notification:
         image: piggy1/notification:latest
         container_name: piggyback-dev-runner-notification
         restart: always
         ports:
-         - "8080:8080"
+         - "8080:8086"
     portal:
         image: piggy1/portal:latest
         container_name: piggyback-dev-runner-portal
