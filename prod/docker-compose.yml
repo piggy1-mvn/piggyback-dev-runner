@@ -2,50 +2,50 @@ version: '3.1'
 
 services:
     location:
-        image: piggy1/location:latest
-        container_name: piggyback-dev-runner-location
+        image: gcr.io/absolute-text-251105/piggy1-location:v1
+        container_name: piggyback-prod-runner-location
         restart: always
         ports:
          - "8080:8080"
     offers:
-        image: piggy1/offers:latest
-        container_name: piggyback-dev-runner-offers
+        image: gcr.io/absolute-text-251105/piggy1-offers:v1
+        container_name: piggyback-prod-runner-offers
         restart: always
         ports:
          - "8080:8081"
     events:
-        image: piggy1/events:latest
-        container_name: piggyback-dev-runner-events
+        image: gcr.io/absolute-text-251105/piggy1-events:v1
+        container_name: piggyback-prod-runner-events
         restart: always
         ports:
          - "8080:8082"
     user:
-        image: piggy1/user:latest
-        container_name: piggyback-dev-runner-user
+        image: gcr.io/absolute-text-251105/piggy1-user:v1
+        container_name: piggyback-prod-runner-user
         restart: always
         ports:
          - "8080:8083"
     invoice:
-        image: piggy1/invoice:latest
-        container_name: piggyback-dev-runner-invoice
+        image: gcr.io/absolute-text-251105/piggy1-invoice:v1
+        container_name: piggyback-prod-runner-invoice
         restart: always
         ports:
          - "8080:8084"
     partner:
-        image: piggy1/partner:latest
-        container_name: piggyback-dev-runner-partner
+        image: gcr.io/absolute-text-251105/piggy1-partner:v1
+        container_name: piggyback-prod-runner-partner
         restart: always
         ports:
          - "8080:8085"
     notification:
-        image: piggy1/notification:latest
-        container_name: piggyback-dev-runner-notification
+        image: gcr.io/absolute-text-251105/piggy1-notification:v1
+        container_name: piggyback-prod-runner-notification
         restart: always
         ports:
          - "8080:8086"
     portal:
         image: piggy1/portal:latest
-        container_name: piggyback-dev-runner-portal
+        container_name: piggyback-prod-runner-portal
         restart: always
         ports:
          - "5000:5000"
