@@ -83,3 +83,24 @@ Some of the microservices use GCP Pub/Sub to publish and subscribe for messages.
 spring.cloud.gcp.project-id=some-project-id
 spring.cloud.gcp.credentials.location=file:/app/config/secret.json
 ~~~
+
+## GCP Image Tagging for Production Deployment
+
+For Java microservices, production docker images are built and pushed to GCR when a pull request is merged to master. In order to insure changes are deployed through the CD pipeline, please increment the tag for the production image as follows -
+
+Under .travis.yml - Update as follows -
+
+Old -
+~~~
+- if [ $TRAVIS_BRANCH == "master" ] && [ $TRAVIS_EVENT_TYPE == "push" ]; then docker tag location-prod gcr.io/absolute-text-251105/piggy1-location:v1; fi
+...
+- if [ $TRAVIS_BRANCH == "master" ] && [ $TRAVIS_EVENT_TYPE == "push" ]; then docker push gcr.io/absolute-text-251105/piggy1-location:v1; fi
+~~~
+New -
+~~~
+- if [ $TRAVIS_BRANCH == "master" ] && [ $TRAVIS_EVENT_TYPE == "push" ]; then docker tag location-prod gcr.io/absolute-text-251105/piggy1-location:v2; fi
+...
+- if [ $TRAVIS_BRANCH == "master" ] && [ $TRAVIS_EVENT_TYPE == "push" ]; then docker push gcr.io/absolute-text-251105/piggy1-location:v2; fi
+~~~
+
+**NOTE: Do not merge pull requests to master without incrementing the tag at both positions, else changes will not be deployed to production.**
