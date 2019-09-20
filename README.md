@@ -88,15 +88,10 @@ spring.cloud.gcp.credentials.location=file:/app/config/secret.json
 
 For Java microservices, production docker images are built and pushed to GCR when a pull request is merged to master. In order to insure changes are deployed through the CD pipeline, please increment the tag for the production image as follows -
 
-Under .travis.yml - Update as follows -
+Under .travis.yml -
 
-Old -
-~~~
-- if [ $TRAVIS_BRANCH == "master" ] && [ $TRAVIS_EVENT_TYPE == "push" ]; then docker tag location-prod gcr.io/absolute-text-251105/piggy1-location:v1; fi
-...
-- if [ $TRAVIS_BRANCH == "master" ] && [ $TRAVIS_EVENT_TYPE == "push" ]; then docker push gcr.io/absolute-text-251105/piggy1-location:v1; fi
-~~~
-New -
+For incrementing tag from v1 to v2, the updated .travis.yml file should be as below. Note that the update needs to be made on 2 lines -
+
 ~~~
 - if [ $TRAVIS_BRANCH == "master" ] && [ $TRAVIS_EVENT_TYPE == "push" ]; then docker tag location-prod gcr.io/absolute-text-251105/piggy1-location:v2; fi
 ...
