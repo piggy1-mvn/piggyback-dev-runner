@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: piggyback-partner
+  labels:
+    app: piggyback-partner
+  namespace: default
+spec:
+  replicas: 2
+  progressDeadlineSeconds: 10
+#  strategy:
+#    rollingUpdate:
+#      maxSurge: 25%
+#      maxUnavailable: 25%
+#    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: piggyback-partner
+    spec:
+      containers:
+      - image: gcr.io/absolute-text-251105/piggy1-partner:v1
+        name: piggyback-prod-runner-partner
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "200m"
+        restartPolicy: Always
+        ports:
+        - containerPort: 8085
+        readinessProbe:
+          httpGet:
+            path: /swagger-ui.html
+            port: 8085
+        livenessProbe:
+          httpGet:
+            path: /swagger-ui.html
+            port: 8085
+          initialDelaySeconds: 30
+          timeoutSeconds: 10
+          failureThreshold: 1      
+status: {}

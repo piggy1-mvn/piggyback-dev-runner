@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: piggyback-events
+  name: piggyback-events-service
+  namespace: default
+spec:
+  ports:
+  - protocol: TCP
+    port: 8080
+    targetPort: 8082
+  selector:
+    app: piggyback-events
+  type: LoadBalancer
+status:
+  loadBalancer: {}

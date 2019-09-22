@@ -44,8 +44,8 @@ services:
         ports:
          - "8080:8086"
     portal:
-        image: piggy1/portal:latest
+        image: gcr.io/absolute-text-251105/piggy1-portal:v1
         container_name: piggyback-prod-runner-portal
         restart: always
         ports:
-         - "5000:5000"
+         - "80:5000"

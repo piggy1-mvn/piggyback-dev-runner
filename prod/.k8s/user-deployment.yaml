@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: piggyback-user
+  labels:
+    app: piggyback-user
+  namespace: default
+spec:
+  replicas: 2
+  progressDeadlineSeconds: 10
+  selector:
+    matchLabels:
+      app: piggyback-user
+#  strategy:
+#    rollingUpdate:
+#      maxSurge: 25%
+#      maxUnavailable: 25%
+#    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: piggyback-user
+    spec:
+      containers:
+      - image: gcr.io/absolute-text-251105/piggy1-user:v2
+        name: piggyback-prod-runner-user
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "200m"
+        restartPolicy: Always
+        ports:
+        - containerPort: 8083
+        readinessProbe:
+          httpGet:
+            path: /swagger-ui.html
+            port: 8083
+        livenessProbe:
+          httpGet:
+            path: /swagger-ui.html
+            port: 8083
+          initialDelaySeconds: 30
+          timeoutSeconds: 10
+          failureThreshold: 1      
+status: {}

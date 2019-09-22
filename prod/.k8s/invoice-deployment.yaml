@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: piggyback-invoice
+  labels:
+    app: piggyback-invoice
+  namespace: default
+spec:
+  replicas: 2
+  progressDeadlineSeconds: 10
+  selector:
+    matchLabels:
+      app: piggyback-invoice
+#  strategy:
+#    rollingUpdate:
+#      maxSurge: 25%
+#      maxUnavailable: 25%
+#    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: piggyback-invoice
+    spec:
+      containers:
+      - image: gcr.io/absolute-text-251105/piggy1-invoice:v1
+        name: piggyback-prod-runner-invoice
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "200m"
+        restartPolicy: Always
+        ports:
+        - containerPort: 8084
+        readinessProbe:
+          httpGet:
+            path: /swagger-ui.html
+            port: 8084
+        livenessProbe:
+          httpGet:
+            path: /swagger-ui.html
+            port: 8084
+          initialDelaySeconds: 30
+          timeoutSeconds: 10
+          failureThreshold: 1      
+status: {}
