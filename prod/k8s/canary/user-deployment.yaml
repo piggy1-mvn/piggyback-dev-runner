@@ -5,7 +5,7 @@ metadata:
   labels:
     app: piggyback-user
     env: canary
-  namespace: default
+  namespace: canary
 spec:
   replicas: 1
   progressDeadlineSeconds: 10
@@ -31,18 +31,18 @@ spec:
           limits:
             memory: "128Mi"
             cpu: "200m"
-        restartPolicy: Always
+#        restartPolicy: Always
         ports:
         - containerPort: 8083
-        readinessProbe:
-          httpGet:
-            path: /swagger-ui.html
-            port: 8083
-        livenessProbe:
-          httpGet:
-            path: /swagger-ui.html
-            port: 8083
-          initialDelaySeconds: 30
-          timeoutSeconds: 10
-          failureThreshold: 1      
+#        readinessProbe:
+#          httpGet:
+#            path: /swagger-ui.html
+#            port: 8083
+#        livenessProbe:
+#          httpGet:
+#            path: /swagger-ui.html
+#            port: 8083
+#          initialDelaySeconds: 30
+#          timeoutSeconds: 10
+#          failureThreshold: 1      
 status: {}
