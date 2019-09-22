@@ -1,4 +1,4 @@
-apiVersion: apps/v1
+apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
   name: piggyback-user-production
@@ -31,13 +31,13 @@ spec:
           limits:
             memory: "128Mi"
             cpu: "200m"
-#        restartPolicy: Always
+        imagePullPolicy: Always
         ports:
         - containerPort: 8083
-#        readinessProbe:
-#          httpGet:
-#            path: /swagger-ui.html
-#            port: 8083
+        readinessProbe:
+          httpGet:
+            path: /swagger-ui.html
+            port: 8083
 #        livenessProbe:
 #          httpGet:
 #            path: /swagger-ui.html
