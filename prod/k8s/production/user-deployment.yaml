@@ -7,7 +7,7 @@ metadata:
     env: production
   namespace: production
 spec:
-  replicas: 3
+  replicas: 1
   progressDeadlineSeconds: 10
   selector:
     matchLabels:
