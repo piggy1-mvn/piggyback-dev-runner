@@ -5,7 +5,7 @@ metadata:
   labels:
     app: piggyback-user
     env: production
-  namespace: default
+  namespace: production
 spec:
   replicas: 3
   progressDeadlineSeconds: 10
