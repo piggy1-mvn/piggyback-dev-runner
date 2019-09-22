@@ -29,8 +29,8 @@ spec:
         name: piggyback-prod-runner-user
         resources:
           limits:
-            memory: "256Mi"
-            cpu: "400m"
+            memory: "512Mi"
+            cpu: "500m"
         imagePullPolicy: Always
         ports:
         - name: user
