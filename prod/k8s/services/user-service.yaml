@@ -4,7 +4,6 @@ metadata:
   labels:
     app: piggyback-user
   name: piggyback-user-service
-  namespace: default
 spec:
   ports:
   - protocol: TCP
