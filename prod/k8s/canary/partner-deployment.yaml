@@ -1,16 +1,18 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: piggyback-invoice
+  name: piggyback-partner-canary
   labels:
-    app: piggyback-invoice
+    app: piggyback-partner
+    env: canary
   namespace: default
 spec:
-  replicas: 2
+  replicas: 1
   progressDeadlineSeconds: 10
   selector:
     matchLabels:
-      app: piggyback-invoice
+      app: piggyback-partner
+      env: canary
 #  strategy:
 #    rollingUpdate:
 #      maxSurge: 25%
@@ -19,26 +21,27 @@ spec:
   template:
     metadata:
       labels:
-        app: piggyback-invoice
+        app: piggyback-partner
+        env: canary
     spec:
       containers:
-      - image: gcr.io/absolute-text-251105/piggy1-invoice:v1
-        name: piggyback-prod-runner-invoice
+      - image: gcr.io/absolute-text-251105/piggy1-partner:v1
+        name: piggyback-prod-runner-partner
         resources:
           limits:
             memory: "128Mi"
             cpu: "200m"
         restartPolicy: Always
         ports:
-        - containerPort: 8084
+        - containerPort: 8085
         readinessProbe:
           httpGet:
             path: /swagger-ui.html
-            port: 8084
+            port: 8085
         livenessProbe:
           httpGet:
             path: /swagger-ui.html
-            port: 8084
+            port: 8085
           initialDelaySeconds: 30
           timeoutSeconds: 10
           failureThreshold: 1      

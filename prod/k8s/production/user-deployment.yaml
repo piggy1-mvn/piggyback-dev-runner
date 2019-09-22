@@ -1,16 +1,18 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: piggyback-user
+  name: piggyback-user-production
   labels:
     app: piggyback-user
+    env: production
   namespace: default
 spec:
-  replicas: 2
+  replicas: 3
   progressDeadlineSeconds: 10
   selector:
     matchLabels:
       app: piggyback-user
+      env: production
 #  strategy:
 #    rollingUpdate:
 #      maxSurge: 25%
@@ -20,6 +22,7 @@ spec:
     metadata:
       labels:
         app: piggyback-user
+        env: production
     spec:
       containers:
       - image: gcr.io/absolute-text-251105/piggy1-user:v2

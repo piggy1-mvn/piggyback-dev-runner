@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: piggyback-location-canary
+  labels:
+    app: piggyback-location
+    env: canary
+  namespace: default
+spec:
+  replicas: 1
+  progressDeadlineSeconds: 10
+  selector:
+    matchLabels:
+      app: piggyback-location
+      env: canary
+#  strategy:
+#    rollingUpdate:
+#      maxSurge: 25%
+#      maxUnavailable: 25%
+#    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: piggyback-location
+        env: canary
+    spec:
+      containers:
+      - image: gcr.io/absolute-text-251105/piggy1-location:v1
+        name: piggyback-prod-runner-location
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "200m"
+        restartPolicy: Always
+        ports:
+        - containerPort: 8080
+        readinessProbe:
+          httpGet:
+            path: /swagger-ui.html
+            port: 8080
+        livenessProbe:
+          httpGet:
+            path: /swagger-ui.html
+            port: 8080
+          initialDelaySeconds: 30
+          timeoutSeconds: 10
+          failureThreshold: 1      
+status: {}
