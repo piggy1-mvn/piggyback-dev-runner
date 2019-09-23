@@ -1,18 +1,17 @@
-apiVersion: apps/v1
+apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
   name: piggyback-user-canary
-  labels:
-    app: piggyback-user
-    env: canary
-  namespace: canary
+#  labels:
+#    app: piggyback-user
+#    env: canary
 spec:
   replicas: 1
   progressDeadlineSeconds: 10
-  selector:
-    matchLabels:
-      app: piggyback-user
-      env: canary
+#  selector:
+#    matchLabels:
+#      app: piggyback-user
+#      env: canary
 #  strategy:
 #    rollingUpdate:
 #      maxSurge: 25%
@@ -29,15 +28,16 @@ spec:
         name: piggyback-prod-runner-user
         resources:
           limits:
-            memory: "128Mi"
-            cpu: "200m"
-#        restartPolicy: Always
+            memory: "512Mi"
+            cpu: "500m"
+        imagePullPolicy: Always
         ports:
-        - containerPort: 8083
-#        readinessProbe:
-#          httpGet:
-#            path: /swagger-ui.html
-#            port: 8083
+        - name: piggyback-user
+          containerPort: 8083
+        readinessProbe:
+          httpGet:
+            path: /swagger-ui.html
+            port: 8083
 #        livenessProbe:
 #          httpGet:
 #            path: /swagger-ui.html
