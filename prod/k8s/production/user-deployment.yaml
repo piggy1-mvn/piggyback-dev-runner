@@ -2,17 +2,16 @@ apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
   name: piggyback-user-production
-  labels:
-    app: piggyback-user
-    env: production
-  namespace: production
+#  labels:
+#    app: piggyback-user
+#    env: production
 spec:
   replicas: 3
   progressDeadlineSeconds: 10
-  selector:
-    matchLabels:
-      app: piggyback-user
-      env: production
+#  selector:
+#    matchLabels:
+#      app: piggyback-user
+#      env: production
 #  strategy:
 #    rollingUpdate:
 #      maxSurge: 25%
@@ -33,7 +32,7 @@ spec:
             cpu: "500m"
         imagePullPolicy: Always
         ports:
-        - name: user
+        - name: piggyback-user
           containerPort: 8083
         readinessProbe:
           httpGet:
