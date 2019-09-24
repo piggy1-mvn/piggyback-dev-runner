@@ -86,16 +86,19 @@ spring.cloud.gcp.credentials.location=file:/app/config/secret.json
 
 ## GCP Image Tagging for Production Deployment
 
-For Java microservices, production docker images are built and pushed to GCR when a pull request is merged to master. In order to insure changes are deployed through the CD pipeline, please increment the tag for the production image as follows -
+For Java microservices, production docker images are built and pushed to GCR when a pull request is merged to develop. In order to ensure changes are deployed through the CD pipeline, please increment the tag for the production image in 4 files, as follows -
 
-Under .travis.yml -
-
-For incrementing tag from v1 to v2, the updated .travis.yml file should be as below. Note that the update needs to be made on 2 lines -
+In Makefile_prod and Makefile_canary -
 
 ~~~
-- if [ $TRAVIS_BRANCH == "master" ] && [ $TRAVIS_EVENT_TYPE == "push" ]; then docker tag location-prod gcr.io/absolute-text-251105/piggy1-location:v2; fi
-...
-- if [ $TRAVIS_BRANCH == "master" ] && [ $TRAVIS_EVENT_TYPE == "push" ]; then docker push gcr.io/absolute-text-251105/piggy1-location:v2; fi
+IMAGE_VERSION:=v5
 ~~~
 
-**NOTE: Do not merge pull requests to master without incrementing the tag at both positions, else changes will not be deployed to production.**
+In k8s/canary/<app>-deployment.yaml and k8s/production/<app>-deployment.yaml
+	
+~~~
+containers:
+      - image: gcr.io/absolute-text-251105/piggy1-user:v5
+~~~
+
+**NOTE: Do not merge pull requests to develop and master without incrementing the tag at all 4 positions, else changes will not be deployed to production.**
