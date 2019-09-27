@@ -109,6 +109,14 @@ services:
         restart: always
         ports:
         - "8000:80"
+    sample:
+        image: piggy1/sampleapp:latest
+        container_name: piggyback-dev-runner-sampleapp-1
+        restart: always
+        ports:
+         - "8087:8080"
+        external_links:
+        - piggyback-dev-runner-mongo-1
 volumes:
     mysql-data-vol:
     mysql-init-vol:
