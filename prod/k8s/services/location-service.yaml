@@ -4,7 +4,7 @@ metadata:
   labels:
     app: piggyback-location
   name: piggyback-location-service
-  namespace: default
+  namespace: production
 spec:
   ports:
   - protocol: TCP

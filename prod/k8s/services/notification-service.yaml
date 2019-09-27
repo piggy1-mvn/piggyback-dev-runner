@@ -4,7 +4,9 @@ metadata:
   labels:
     app: piggyback-notification
   name: piggyback-notification-service
-  namespace: default
+  namespace: production
+  annotations:
+        cloud.google.com/load-balancer-type: "Internal"
 spec:
   ports:
   - protocol: TCP
@@ -12,6 +14,5 @@ spec:
     targetPort: 8086
   selector:
     app: piggyback-notification
-  type: LoadBalancer
 status:
   loadBalancer: {}

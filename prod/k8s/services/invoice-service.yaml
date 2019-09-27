@@ -4,7 +4,7 @@ metadata:
   labels:
     app: piggyback-invoice
   name: piggyback-invoice-service
-  namespace: default
+  namespace: production
 spec:
   ports:
   - protocol: TCP

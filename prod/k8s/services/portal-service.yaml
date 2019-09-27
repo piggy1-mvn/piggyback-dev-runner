@@ -2,16 +2,16 @@ apiVersion: v1
 kind: Service
 metadata:
   labels:
-    app: piggyback-partner
-  name: piggyback-partner-service
+    app: piggyback-portal
+  name: piggyback-portal-service
   namespace: production
 spec:
   ports:
   - protocol: TCP
-    port: 8080
-    targetPort: 8085
+    port: 80
+    targetPort: 5000
   selector:
-    app: piggyback-partner
+    app: piggyback-portal
   type: LoadBalancer
 status:
   loadBalancer: {}
