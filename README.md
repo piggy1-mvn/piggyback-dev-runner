@@ -2,7 +2,7 @@
 
 This repository helps with setting up Piggyback Incentives for a developer on their local machine.
 
-## Status
+## Project Status
 
 1. Location Service: [![TravisCI](https://travis-ci.org/piggy1-mvn/piggyback-location.svg?branch=master)](https://travis-ci.org/piggy1-mvn/piggyback-location.svg?branch=master)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=piggy1-mvn_piggyback-location&metric=alert_status)](https://sonarcloud.io/dashboard?id=piggy1-mvn_piggyback-location)
@@ -48,7 +48,7 @@ This repository helps with setting up Piggyback Incentives for a developer on th
 5. Mac - for the iOS app.
 6. Git
 
-## Steps
+## Local Setup Steps
 
 1. Clone this git repository to your local machine.
 2. Run the command in piggyback-dev-runner/scripts/git_pull.txt
@@ -97,3 +97,7 @@ containers:
 ~~~
 
 **NOTE: Do not merge pull requests to develop and master without incrementing the tag at all 4 positions, else changes will not be deployed to production.**
+
+## Auto-Scaling Testing
+
+**scripts/LocationService.jmx** can be imported to JMeter to perform load testing on Production instances of Location Service and test Kubernetes auto-scaling.
