@@ -124,7 +124,7 @@ services:
         volumes:
         - ./gcp-secret-vol:/app/config
         ports:
-         - "8088:8080"
+         - "8088:8088"
         external_links:
         - piggyback-dev-runner-mongo-1
 volumes:
