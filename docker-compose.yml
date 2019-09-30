@@ -117,6 +117,16 @@ services:
          - "8087:8080"
         external_links:
         - piggyback-dev-runner-mongo-1
+    order:
+        image: piggy1/order:latest
+        container_name: piggyback-dev-runner-order-1
+        restart: always
+        volumes:
+        - ./gcp-secret-vol:/app/config
+        ports:
+         - "8088:8080"
+        external_links:
+        - piggyback-dev-runner-mongo-1
 volumes:
     mysql-data-vol:
     mysql-init-vol:
