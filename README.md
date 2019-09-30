@@ -32,12 +32,16 @@ This repository helps with setting up Piggyback Incentives for a developer on th
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=piggy1-mvn_piggyback-notification&metric=alert_status)](https://sonarcloud.io/dashboard?id=piggy1-mvn_piggyback-notification)
 [![codecov](https://codecov.io/gh/piggy1-mvn/piggyback-notification/branch/master/graph/badge.svg)](https://codecov.io/gh/piggy1-mvn/piggyback-notification)
 
-8. Partner Portal: [![TravisCI](https://travis-ci.org/piggy1-mvn/piggyback-portal.svg?branch=master)](https://travis-ci.org/piggy1-mvn/piggyback-portal.svg?branch=master)
+8. Notification Service: [![TravisCI](https://travis-ci.org/piggy1-mvn/piggyback-order.svg?branch=master)](https://travis-ci.org/piggy1-mvn/piggyback-order.svg?branch=master)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=piggy1-mvn_piggyback-order&metric=alert_status)](https://sonarcloud.io/dashboard?id=piggy1-mvn_piggyback-order)
+[![codecov](https://codecov.io/gh/piggy1-mvn/piggyback-order/branch/master/graph/badge.svg)](https://codecov.io/gh/piggy1-mvn/piggyback-order)
+
+9. Partner Portal: [![TravisCI](https://travis-ci.org/piggy1-mvn/piggyback-portal.svg?branch=master)](https://travis-ci.org/piggy1-mvn/piggyback-portal.svg?branch=master)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=piggy1-mvn_piggyback-portal&metric=alert_status)](https://sonarcloud.io/dashboard?id=piggy1-mvn_piggyback-portal)
 
-9. Mobile Application: [![Build Status](https://app.bitrise.io/app/985561cda48896a5/status.svg?token=EB_R2a7l_eeE78wmQZGEUQ&branch=master)](https://app.bitrise.io/app/985561cda48896a5/status.svg?token=EB_R2a7l_eeE78wmQZGEUQ&branch=master)
+10. Mobile Application: [![Build Status](https://app.bitrise.io/app/985561cda48896a5/status.svg?token=EB_R2a7l_eeE78wmQZGEUQ&branch=master)](https://app.bitrise.io/app/985561cda48896a5/status.svg?token=EB_R2a7l_eeE78wmQZGEUQ&branch=master)
 
-10. Sample Merchant Application:  [![TravisCI](https://travis-ci.org/piggy1-mvn/piggyback-sample.svg?branch=master)](https://travis-ci.org/piggy1-mvn/piggyback-sample.svg?branch=master)
+11. Sample Merchant Application:  [![TravisCI](https://travis-ci.org/piggy1-mvn/piggyback-sample.svg?branch=master)](https://travis-ci.org/piggy1-mvn/piggyback-sample.svg?branch=master)
 
 ## Prerequisite Installations
 
