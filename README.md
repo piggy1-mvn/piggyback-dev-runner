@@ -54,9 +54,12 @@ This repository helps with setting up Piggyback Incentives for a developer on th
 
 ## Local Setup Steps
 
+NOTE: Local machine setup does not support https.
+
 1. Clone this git repository to your local machine.
 2. Run the command in piggyback-dev-runner/scripts/git_pull.txt
-2. Under piggyback-dev-runner folder, on a command line -
+3. Comment out the nginx and certbot services from docker-compose yml.
+4. Under piggyback-dev-runner folder, on a command line -
 
 	**docker-compose up -d**
 	
@@ -105,3 +108,13 @@ containers:
 ## Auto-Scaling Testing
 
 **scripts/LocationService.jmx** can be imported to JMeter to perform load testing on Production instances of Location Service and test Kubernetes auto-scaling.
+
+## Generating certificates for Dev Instance
+
+In order to setup nginx and certbot services as a https to http reverse proxy, follow the below steps:
+
+Pre-requisites: Ensure you own a domain name, with CNAME and NS registered properly and mapped to your Dev VM's public IP address correctly. Scripts in this repository refer to **test.piggyback.ga**
+
+Steps:
+1. Ensure all other services and databases are started.
+2. Run the following command: **sudo ./init-letsencrypt.sh**
