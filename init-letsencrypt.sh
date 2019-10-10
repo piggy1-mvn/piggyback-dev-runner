@@ -5,7 +5,7 @@ if ! [ -x "$(command -v docker-compose)" ]; then
   exit 1
 fi
 
-domains=(piggyback.ga www.piggyback.ga)
+domains=(test.piggyback.ga www.piggyback.ga)
 rsa_key_size=4096
 data_path="./proxy-data-nginx/certbot"
 email="piggy.incentives2019@gmail.com" # Adding a valid address is strongly recommended
