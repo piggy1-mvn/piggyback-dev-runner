@@ -127,9 +127,32 @@ services:
          - "8088:8088"
         external_links:
         - piggyback-dev-runner-mongo-1
+#    proxy:
+#        image: piggy1/proxy:latest
+#        container_name: piggyback-dev-runner-proxy-1
+#        hostname: proxy
+#        ports:
+#          - 80:80
+#          - 443:443
+    nginx:
+        image: nginx:stable-alpine
+        ports:
+          - "80:80"
+          - "443:443"
+        volumes:
+          - ./proxy-data-nginx/nginx:/etc/nginx/conf.d
+          - ./proxy-data-nginx/certbot/conf:/etc/letsencrypt
+          - ./proxy-data-nginx/certbot/www:/var/www/certbot
+    certbot:
+        image: certbot/certbot
+        volumes:
+        - ./proxy-data-nginx/certbot/conf:/etc/letsencrypt
+        - ./proxy-data-nginx/certbot/www:/var/www/certbot
+        entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done;'"
 volumes:
     mysql-data-vol:
     mysql-init-vol:
     mongo-data-vol:
     mongo-init-vol:
     gcp-secret-vol:
+    proxy-data-nginx:
