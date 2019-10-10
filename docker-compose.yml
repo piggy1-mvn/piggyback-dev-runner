@@ -127,13 +127,6 @@ services:
          - "8088:8088"
         external_links:
         - piggyback-dev-runner-mongo-1
-#    proxy:
-#        image: piggy1/proxy:latest
-#        container_name: piggyback-dev-runner-proxy-1
-#        hostname: proxy
-#        ports:
-#          - 80:80
-#          - 443:443
     nginx:
         image: nginx:stable-alpine
         ports:
@@ -143,6 +136,7 @@ services:
           - ./proxy-data-nginx/nginx:/etc/nginx/conf.d
           - ./proxy-data-nginx/certbot/conf:/etc/letsencrypt
           - ./proxy-data-nginx/certbot/www:/var/www/certbot
+        command: "/bin/sh -c 'while :; do sleep 6h & wait $${!}; nginx -s reload; done & nginx -g \"daemon off;\"'"
     certbot:
         image: certbot/certbot
         volumes:
