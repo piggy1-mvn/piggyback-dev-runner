@@ -147,33 +147,33 @@ services:
          - "8087:8080"
         depends_on:
         - mongo
-#    nginx:
-#        image: nginx:stable-alpine
-#        ports:
-#          - "80:80"
-#          - "443:443"
-#        volumes:
-#          - ./proxy-data-nginx/nginx:/etc/nginx/conf.d
-#          - ./proxy-data-nginx/certbot/conf:/etc/letsencrypt
-#          - ./proxy-data-nginx/certbot/www:/var/www/certbot
-#        command: "/bin/sh -c 'while :; do sleep 6h & wait $${!}; nginx -s reload; done & nginx -g \"daemon off;\"'"
-#        depends_on:
-#        - location
-#        - offers
-#        - events
-#        - user
-#        - invoice
-#        - partner
-#        - notification
-#        - portal
-#        - sample
-#        - order
-#    certbot:
-#        image: certbot/certbot
-#        volumes:
-#        - ./proxy-data-nginx/certbot/conf:/etc/letsencrypt
-#        - ./proxy-data-nginx/certbot/www:/var/www/certbot
-#        entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done;'"
+    nginx:
+        image: nginx:stable-alpine
+        ports:
+          - "80:80"
+          - "443:443"
+        volumes:
+          - ./proxy-data-nginx/nginx:/etc/nginx/conf.d
+          - ./proxy-data-nginx/certbot/conf:/etc/letsencrypt
+          - ./proxy-data-nginx/certbot/www:/var/www/certbot
+        command: "/bin/sh -c 'while :; do sleep 6h & wait $${!}; nginx -s reload; done & nginx -g \"daemon off;\"'"
+        depends_on:
+        - location
+        - offers
+        - events
+        - user
+        - invoice
+        - partner
+        - notification
+        - portal
+        - sample
+        - order
+    certbot:
+        image: certbot/certbot
+        volumes:
+        - ./proxy-data-nginx/certbot/conf:/etc/letsencrypt
+        - ./proxy-data-nginx/certbot/www:/var/www/certbot
+        entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done;'"
     zookeeper:
         image: confluentinc/cp-zookeeper:5.3.1
         hostname: zookeeper
