@@ -1,5 +1,4 @@
 mysql-data-vol/
 gcp-secret-vol/
-prod/kompose.exe
 kafka-data-vol/
 zookeeper-logs-vol/
