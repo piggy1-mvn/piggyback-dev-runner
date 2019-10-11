@@ -14,8 +14,6 @@ services:
         image: piggy1/offers:latest
         container_name: piggyback-dev-runner-offers-1
         restart: always
-        volumes:
-        - ./gcp-secret-vol:/app/config
         ports:
          - "8081:8081"
         depends_on:
@@ -28,8 +26,6 @@ services:
         image: piggy1/events:latest
         container_name: piggyback-dev-runner-events-1
         restart: always
-        volumes:
-        - ./gcp-secret-vol:/app/config
         ports:
          - "8082:8082"
         depends_on:
@@ -39,8 +35,6 @@ services:
         image: piggy1/user:latest
         container_name: piggyback-dev-runner-user-1
         restart: always
-        volumes:
-        - ./gcp-secret-vol:/app/config
         ports:
          - "8083:8083"
         depends_on:
@@ -59,8 +53,6 @@ services:
         image: piggy1/partner:latest
         container_name: piggyback-dev-runner-partner-1
         restart: always
-        volumes:
-        - ./gcp-secret-vol:/app/config
         ports:
          - "8085:8085"
         depends_on:
@@ -70,8 +62,6 @@ services:
         image: piggy1/notification:latest
         container_name: piggyback-dev-runner-notification-1
         restart: always
-        volumes:
-        - ./gcp-secret-vol:/app/config
         ports:
          - "8086:8086"
         depends_on:
@@ -80,8 +70,6 @@ services:
         image: piggy1/order:latest
         container_name: piggyback-dev-runner-order-1
         restart: always
-        volumes:
-        - ./gcp-secret-vol:/app/config
         ports:
          - "8088:8088"
         depends_on:
@@ -105,7 +93,6 @@ services:
         restart: always
         volumes: 
         - mongo-data-vol:/data/db
-        - mongo-init-vol:/docker-entrypoint-initdb.d
         environment:
           MONGO_INITDB_ROOT_USERNAME: root
           MONGO_INITDB_ROOT_PASSWORD: example
@@ -166,7 +153,6 @@ services:
         - partner
         - notification
         - portal
-        - sample
         - order
     certbot:
         image: certbot/certbot
@@ -232,7 +218,6 @@ volumes:
     mysql-init-vol:
     mongo-data-vol:
     mongo-init-vol:
-    gcp-secret-vol:
     proxy-data-nginx:
     zookeeper-logs-vol:
     zookeeper-data-vol:
