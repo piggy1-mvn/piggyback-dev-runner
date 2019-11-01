@@ -40,6 +40,8 @@ services:
         depends_on:
         - mysql
         - broker
+        environment:
+          JASYPT_ENCRYPTOR_PASSWORD: piggyback
     invoice:
         image: piggy1/invoice:latest
         container_name: piggyback-dev-runner-invoice-1
