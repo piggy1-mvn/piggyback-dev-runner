@@ -51,6 +51,8 @@ services:
         depends_on:
         - mysql
         - events
+        environment:
+          JASYPT_ENCRYPTOR_PASSWORD: piggyback
     partner:
         image: piggy1/partner:latest
         container_name: piggyback-dev-runner-partner-1
