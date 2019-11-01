@@ -10,6 +10,8 @@ services:
         depends_on:
         - mongo
         - broker
+        environment:
+          JASYPT_ENCRYPTOR_PASSWORD: piggyback
     offers:
         image: piggy1/offers:latest
         container_name: piggyback-dev-runner-offers-1
@@ -22,6 +24,8 @@ services:
         - location
         - notification
         - broker
+        environment:
+          JASYPT_ENCRYPTOR_PASSWORD: piggyback
     events:
         image: piggy1/events:latest
         container_name: piggyback-dev-runner-events-1
@@ -31,6 +35,8 @@ services:
         depends_on:
         - mongo
         - broker
+        environment:
+          JASYPT_ENCRYPTOR_PASSWORD: piggyback
     user:
         image: piggy1/user:latest
         container_name: piggyback-dev-runner-user-1
@@ -62,6 +68,8 @@ services:
         depends_on:
         - mongo
         - broker
+        environment:
+          JASYPT_ENCRYPTOR_PASSWORD: piggyback
     notification:
         image: piggy1/notification:latest
         container_name: piggyback-dev-runner-notification-1
@@ -70,6 +78,8 @@ services:
          - "8086:8086"
         depends_on:
         - broker
+        environment:
+          JASYPT_ENCRYPTOR_PASSWORD: piggyback
     order:
         image: piggy1/order:latest
         container_name: piggyback-dev-runner-order-1
@@ -80,6 +90,8 @@ services:
         - mongo
         - partner
         - broker
+        environment:
+          JASYPT_ENCRYPTOR_PASSWORD: piggyback
     portal:
         image: piggy1/portal:latest
         container_name: piggyback-dev-runner-portal-1
@@ -138,6 +150,8 @@ services:
          - "8087:8080"
         depends_on:
         - mongo
+        environment:
+          JASYPT_ENCRYPTOR_PASSWORD: piggyback
     nginx:
         image: nginx:stable-alpine
         ports:
