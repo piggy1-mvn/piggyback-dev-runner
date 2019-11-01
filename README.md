@@ -33,7 +33,7 @@ This repository helps with setting up Piggyback Incentives for a developer on th
 [![codecov](https://codecov.io/gh/piggy1-mvn/piggyback-notification/branch/master/graph/badge.svg)](https://codecov.io/gh/piggy1-mvn/piggyback-notification)
 
 8. Order Service: [![TravisCI](https://travis-ci.org/piggy1-mvn/piggyback-order.svg?branch=master)](https://travis-ci.org/piggy1-mvn/piggyback-order.svg?branch=master)
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=piggy1-mvn_piggyback-notification&metric=alert_status)](https://sonarcloud.io/dashboard?id=piggy1-mvn_piggyback-notification)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=piggy1-mvn_piggyback-order&metric=alert_status)](https://sonarcloud.io/dashboard?id=piggy1-mvn_piggyback-order)
 [![codecov](https://codecov.io/gh/piggy1-mvn/piggyback-order/branch/master/graph/badge.svg)](https://codecov.io/gh/piggy1-mvn/piggyback-order)
 
 9. Partner Portal: [![TravisCI](https://travis-ci.org/piggy1-mvn/piggyback-portal.svg?branch=master)](https://travis-ci.org/piggy1-mvn/piggyback-portal.svg?branch=master)
@@ -54,8 +54,11 @@ This repository helps with setting up Piggyback Incentives for a developer on th
 
 ## Local Setup Steps
 
-NOTE: Local machine setup does not support https.
+NOTE: 
+1. Local machine setup does not support https.
+2. This project runs Kafka and Zookeeper. It is recommended to allocate at least 8 GB RAM to Docker Desktop.
 
+Steps:
 1. Clone this git repository to your local machine.
 2. Run the command in piggyback-dev-runner/scripts/git_pull.txt
 3. Comment out the nginx and certbot services from docker-compose yml.
@@ -68,24 +71,7 @@ NOTE: Local machine setup does not support https.
 	**docker-compose down**
 	
 	This will stop and remove all containers started in the previous step.
-	
-## GCP Pub/Sub Dev Setup
-
-Some of the microservices use GCP Pub/Sub to publish and subscribe for messages. In order to connect to GCP successfully, following settings should be made manually.
-
-1. For docker container running locatlly, under piggyback-dev-runner, create a folder **gcp-secret-vol** (may already be created if docker-compose command is run) and place secret.json file (shared seperately) in this folder. This will allow microservices to connect to GCP when running inside a docker container.
-
-2. For Windows machines - 
-	
-	a. Add a system environment variable: **GOOGLE_APPLICATION_CREDENTIALS**, and point it to the full path of the secret.json file (shared seperately).
-	
-	b. Comment the following lines from the application.properties to avoid overriding system environment variable -
-	
-~~~
-spring.cloud.gcp.project-id=some-project-id
-spring.cloud.gcp.credentials.location=file:/app/config/secret.json
-~~~
-
+		
 ## GCP Image Tagging for Production Deployment
 
 For Java microservices, production docker images are built and pushed to GCR when a pull request is merged to develop. In order to ensure changes are deployed through the CD pipeline, please increment the tag for the production image in 4 files, as follows -

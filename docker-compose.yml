@@ -219,7 +219,6 @@ volumes:
     mysql-data-vol:
     mysql-init-vol:
     mongo-data-vol:
-    mongo-init-vol:
     proxy-data-nginx:
     zookeeper-logs-vol:
     zookeeper-data-vol:
