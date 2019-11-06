@@ -5,6 +5,8 @@ metadata:
     app: piggyback-location
   name: piggyback-location-service
   namespace: production
+  annotations:
+    cloud.google.com/load-balancer-type: "Internal"
 spec:
   ports:
   - protocol: TCP
@@ -12,6 +14,5 @@ spec:
     targetPort: 8080
   selector:
     app: piggyback-location
-  type: LoadBalancer
 status:
   loadBalancer: {}

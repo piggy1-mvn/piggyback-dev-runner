@@ -5,6 +5,8 @@ metadata:
     app: piggyback-invoice
   name: piggyback-invoice-service
   namespace: production
+  annotations:
+    cloud.google.com/load-balancer-type: "Internal"
 spec:
   ports:
   - protocol: TCP
@@ -12,6 +14,5 @@ spec:
     targetPort: 8084
   selector:
     app: piggyback-invoice
-  type: LoadBalancer
 status:
   loadBalancer: {}

@@ -5,6 +5,8 @@ metadata:
     app: piggyback-order
   name: piggyback-order-service
   namespace: production
+  annotations:
+    cloud.google.com/load-balancer-type: "Internal"
 spec:
   ports:
   - protocol: TCP
@@ -12,6 +14,5 @@ spec:
     targetPort: 8088
   selector:
     app: piggyback-order
-  type: LoadBalancer
 status:
   loadBalancer: {}
