@@ -233,6 +233,7 @@ services:
           PORT: 9021
     elasticsearch:
         image: elasticsearch:7.4.2
+        user: root
         environment:
             - "ES_JAVA_OPTS=-Xms1g -Xmx1g"
             - "discovery.type=single-node"
