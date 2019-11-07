@@ -231,6 +231,26 @@ services:
           CONTROL_CENTER_MONITORING_INTERCEPTOR_TOPIC_PARTITIONS: 1
           CONFLUENT_METRICS_TOPIC_REPLICATION: 1
           PORT: 9021
+    elasticsearch:
+        image: elasticsearch:7.4.2
+        environment:
+            - "ES_JAVA_OPTS=-Xms1g -Xmx1g"
+            - "discovery.type=single-node"
+        ports:
+            - "9200:9200"
+        volumes:
+            - ./elastic-data-vol:/usr/share/elasticsearch/data
+    kibana:
+        image: kibana:7.4.2
+        ports:
+            - "5601:5601"
+    filebeat:
+        image: docker.elastic.co/beats/filebeat:7.4.2
+        user: root
+        volumes:
+            - ./filebeat-data-vol/filebeat.yml:/usr/share/filebeat/filebeat.yml:ro
+            - /var/lib/docker:/var/lib/docker:ro
+            - /var/run/docker.sock:/var/run/docker.sock
 volumes:
     mysql-data-vol:
     mysql-init-vol:
@@ -239,3 +259,5 @@ volumes:
     zookeeper-logs-vol:
     zookeeper-data-vol:
     kafka-data-vol:
+    elastic-data-vol:
+    filebeat-data-vol:
