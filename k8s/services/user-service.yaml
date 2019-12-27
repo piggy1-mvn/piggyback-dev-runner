@@ -1,12 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  labels:
-    app: piggyback-user
   name: piggyback-user-service
-  namespace: production
-  annotations:
-    cloud.google.com/load-balancer-type: "Internal"
 spec:
   ports:
   - protocol: TCP
@@ -14,5 +9,4 @@ spec:
     targetPort: 8083
   selector:
     app: piggyback-user
-status:
-  loadBalancer: {}
+  type: NodePort

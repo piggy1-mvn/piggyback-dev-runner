@@ -4,7 +4,6 @@ metadata:
   labels:
     app: zookeeper
   name: zookeeper
-  namespace: production
   annotations:
     cloud.google.com/load-balancer-type: "Internal"
 spec:

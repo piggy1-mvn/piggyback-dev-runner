@@ -1,18 +1,12 @@
 apiVersion: v1
 kind: Service
 metadata:
-  labels:
-    app: piggyback-notification
   name: piggyback-notification-service
-  namespace: production
-  annotations:
-        cloud.google.com/load-balancer-type: "Internal"
 spec:
+  selector:
+    app: piggyback-notification
+  type: NodePort
   ports:
   - protocol: TCP
     port: 8080
     targetPort: 8086
-  selector:
-    app: piggyback-notification
-status:
-  loadBalancer: {}

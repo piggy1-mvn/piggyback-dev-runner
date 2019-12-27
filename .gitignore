@@ -2,3 +2,4 @@ mysql-data-vol/
 gcp-secret-vol/
 kafka-data-vol/
 zookeeper-logs-vol/
+elastic-data-vol/

@@ -4,7 +4,6 @@ metadata:
   labels:
     app: broker
   name: broker
-  namespace: production
   annotations:
     cloud.google.com/load-balancer-type: "Internal"
 spec:

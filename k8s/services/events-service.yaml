@@ -1,12 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  labels:
-    app: piggyback-events
   name: piggyback-events-service
-  namespace: production
-  annotations:
-    cloud.google.com/load-balancer-type: "Internal"
 spec:
   ports:
   - protocol: TCP
@@ -14,5 +9,4 @@ spec:
     targetPort: 8082
   selector:
     app: piggyback-events
-status:
-  loadBalancer: {}
+  type: NodePort

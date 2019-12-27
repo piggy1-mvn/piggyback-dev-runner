@@ -104,3 +104,11 @@ Pre-requisites: Ensure you own a domain name, with CNAME and NS registered prope
 Steps:
 1. Ensure all other services and databases are started.
 2. Run the following command: **sudo ./init-letsencrypt.sh**
+
+## Production Kubernetes Cluster Setup
+
+The repository contains definition files for setting up all components in a kubernetes cluster in k8s/ folder. HTTPS setup can be performed using NGINX Ingress. The below URL can be refered to for high-level instructions to perform the setup.
+
+~~~
+https://www.digitalocean.com/community/tutorials/how-to-set-up-an-nginx-ingress-with-cert-manager-on-digitalocean-kubernetes
+~~~
